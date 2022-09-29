@@ -1,0 +1,42 @@
+.container {
+    max-width: 1440px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: inherit;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.card-image {
+    overflow: hidden;
+}
+
+.card-image {
+    img {
+        max-width: none;
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        transition: transform .3s;
+    }
+}
+
+.card-text {
+    margin: 20px;
+}
+
+.card {
+    &:hover {
+        color: orangered;
+        .card-image {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
