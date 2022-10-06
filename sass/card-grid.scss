@@ -21,15 +21,19 @@ $breakpoint: (
 }
 
 .card-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: -20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     padding: 0;
     list-style: none;
-}
 
-.card-list-item {
-    margin-top: 20px;
+    // @include mq('tab') {
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
+
+    // @include mq('pc') {
+    //     grid-template-columns: repeat(3, 1fr);
+    // }
 }
 
 .card {
@@ -57,35 +61,10 @@ $breakpoint: (
         &:hover {
             transform: scale(1.1);
         }
+
     }
 }
 
 .card-text {
     margin: 20px;
-}
-
-@include mq('tab') {
-    .card-list {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .card-list-item {
-        width: calc((100% - 20px) / 2);
-    }
-}
-
-@include mq('pc') {
-    .card-list {
-        &::after {
-            content: '';
-            display: block;
-            width: calc((100% - 40px) / 3);
-        }
-    }
-
-    .card-list-item {
-        width: calc((100% - 40px) / 3);
-    }
 }
