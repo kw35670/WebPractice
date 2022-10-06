@@ -13,11 +13,17 @@
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
+.card:hover {
+  color: orangered;
+}
+.card:hover .card-image img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
 
 .card-image {
   overflow: hidden;
 }
-
 .card-image img {
   max-width: none;
   width: 100%;
@@ -30,12 +36,4 @@
 
 .card-text {
   margin: 20px;
-}
-
-.card:hover {
-  color: orangered;
-}
-.card:hover .card-image img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
