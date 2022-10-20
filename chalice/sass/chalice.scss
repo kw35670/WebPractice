@@ -1,0 +1,70 @@
+$breakpoint: (
+//   sp: 'screen and (max-width: 767px)',
+  tab: 'screen and (min-width: 768px)',
+//   pc: 'screen and (min-width: 992px)'
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp), print} {
+   @content;
+  }
+}
+
+/************************
+メイン
+************************/
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr auto auto 50px;
+    grid-template-areas: 
+        "header"
+        "main"
+        "lnav"
+        "sidebar"
+        "footer";
+    gap: 20px;
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.header {
+    background: #b689b0;
+    grid-area: header;
+}
+
+.main {
+    background: #f9bcdd;
+    grid-area: main;
+}
+
+.lnav {
+    background: #d5a4cf;
+    grid-area: lnav;
+}
+
+.sidebar {
+    background: #d5a4cf;
+    grid-area: sidebar;
+}
+
+.footer {
+    background: #b689b0;
+    grid-area: footer;
+}
+
+/************************
+レスポンシブ
+************************/
+
+@include mq('tab') {
+    .container {
+        grid-template-columns: 24% 1fr 24%;
+        grid-template-rows: 100px 1fr 100px;
+        grid-template-areas: "header header header"
+        "lnav main sidebar"
+        "footer footer footer";
+    }
+}
