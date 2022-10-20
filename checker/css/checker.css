@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* ===============================================
+メインコンテンツ
+=============================================== */
+.container {
+  max-width: 1440px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.checker {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.checker-body {
+  padding: 30px;
+  background: #eaffea;
+}
+
+.checker-title {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+}
+
+.checker-text {
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+.checker-image img {
+  max-width: none;
+  width: 100%;
+}
+
+/* ===============================================
+レスポンシブ
+=============================================== */
+@media screen and (min-width: 768px), print {
+  .checker {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .checker.reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .checker-body {
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .checker-image {
+    width: 50%;
+  }
+}
