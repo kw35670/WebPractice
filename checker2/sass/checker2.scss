@@ -1,0 +1,119 @@
+$breakpoint: (
+    sp: 'screen and (max-width: 767px)',
+    tab: 'screen and (min-width: 768px)',
+    pc: 'screen and (min-width: 992px)'
+);
+
+@mixin mq($bp) {
+    @media #{map-get($breakpoint, $bp), print} {
+        @content;
+    }
+}
+
+/* ===============================================
+メインコンテンツ
+=============================================== */
+
+.container {
+    max-width: 1440px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.checker {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.checker + .checker {
+    margin-top: 30px;
+}
+
+.checker-body {
+    padding: 30px;
+    background: #eaffea;
+}
+
+.checker-title {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+}
+
+.checker-text {
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+.checker-image {
+    img {
+        max-width: none;
+        width: 100%;
+        position: relative;
+    }
+}
+
+/* ===============================================
+レスポンシブ
+=============================================== */
+
+@include mq('tab') {
+    .checker {
+        flex-direction: row-reverse;
+    }
+
+    .checker + .checker {
+        margin-top: 80px;
+    }
+
+    .checker.reverse {
+        flex-direction: row;
+    }
+
+    .checker-body {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        top: 40px;
+        width: calc(50% + 80px);
+    }
+
+    .checker-image {
+        width: 50%;
+    }
+
+    .checker.normal .checker-body {
+        margin-left: -80px;
+        padding-left: 110px;
+    }
+
+    .checker.reverse .checker-body {
+        margin-right: -80px;
+        padding-right: 110px;
+    }
+}
+
+@include mq('sp') {
+    .checker-body {
+        margin-top: -40px;
+        padding-top: 60px;
+    }
+
+    .checker.normal .checker-image {
+        margin-left: -20px;
+    }
+
+    .checker.normal .checker-body {
+        margin-right: -20px;
+    }
+
+    .checker.reverse .checker-image{
+        margin-right: -20px;
+    }
+
+    .checker.reverse .checker-body {
+        margin-left: -20px;
+    }
+}
