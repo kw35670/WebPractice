@@ -1,0 +1,58 @@
+$breakpoint: (
+    sp: 'screen and (max-width: 767px)',
+    tab: 'screen and (min-width: 768px)',
+    pc: 'screen and (min-width: 992px)'
+);
+
+@mixin mq($bp) {
+    @media #{map-get($breakpoint, $bp), print} {
+        @content;
+    }
+}
+
+/* ===============================================
+メインコンテンツ
+=============================================== */
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 30px;
+}
+
+.table2 {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    th,
+    td {
+        padding: 15px;
+        border: 1px solid #999;
+        text-align: center;
+    }
+
+    th {
+        background: #f6f6f6;
+    }
+}
+
+/* ===============================================
+レスポンシブ
+=============================================== */
+
+@include mq('sp') {
+    .table2 {
+        tr,
+        th,
+        td {
+            display: block;
+            margin-top: -1px;
+            text-align: left;
+        }
+
+        td {
+            padding-left: 30px;
+        }
+    }
+}

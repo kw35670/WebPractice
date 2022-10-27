@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/* ===============================================
+メインコンテンツ
+=============================================== */
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.table2 {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.table2 th,
+.table2 td {
+  padding: 15px;
+  border: 1px solid #999;
+  text-align: center;
+}
+.table2 th {
+  background: #f6f6f6;
+}
+
+/* ===============================================
+レスポンシブ
+=============================================== */
+@media screen and (max-width: 767px), print {
+  .table2 tr,
+.table2 th,
+.table2 td {
+    display: block;
+    margin-top: -1px;
+    text-align: left;
+  }
+  .table2 td {
+    padding-left: 30px;
+  }
+}
